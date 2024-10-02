@@ -1,0 +1,34 @@
+Database Details:
+Mosque Table
+------------------------------------------------------------
+Attributes                  |          Data type
+------------------------------------------------------------
+Mosque ID(Primary Key)      |          Varchar(50)
+Mosque Name                 |          Char(100)
+Mosque Address              |          Char(500)
+Mosque Google Map URL       |          Varchar(500)
+MosqueAdmin ID(Foreign Key) |          Varchar(50)
+
+------------------------------------------------------------
+
+Prayer Table
+------------------------------------------------------------
+Attributes                  |          Data type
+------------------------------------------------------------
+Prayer ID(Primary Key)      |          Varchar(50)        
+Prayer Name                 |          Char(20)
+Prayer Rakat                |          Int
+Prayer Time                 |          Time
+Prayer Time Range           |          Time
+Mosque ID (Foreign Key)     |          Varchar(50)
+
+-------------------------------------------------------------
+
+MosqueAdmin Table          
+-------------------------------------------------------------
+------------------------------------------------------------
+Attributes                  |          Data type
+------------------------------------------------------------
+MosqueAdmin ID(Primary Key) |          Varchar(50)
+MosqueAdmin Username        |          Varchar(20)
+MosqueAdmin Password        |          Varchar(20)

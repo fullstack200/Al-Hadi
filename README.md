@@ -1,7 +1,3 @@
-Here’s a sample README file for your **Al-Hadi** web application. You can customize it further based on your specific requirements and preferences.
-
----
-
 # Al-Hadi
 
 ## Overview

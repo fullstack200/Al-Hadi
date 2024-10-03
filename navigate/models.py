@@ -31,10 +31,10 @@ class Prayers(models.Model):
     prayer_id = models.CharField(max_length=50, primary_key=True)
     prayer_name = models.CharField(max_length=100)
     prayer_rakat = models.IntegerField()
-    azaan_time = models.TimeField()
-    prayer_time = models.TimeField()
-    prayer_valid_till = models.TimeField()
-    mosque_id = models.ForeignKey(Mosques, on_delete=models.CASCADE)
+    azaan_time = models.TimeField(blank=True, null=True)
+    prayer_time = models.TimeField(blank=True, null=True)
+    prayer_valid_till = models.TimeField(blank=True, null=True)
+    mosque_id = models.ForeignKey(Mosques, related_name='prayers', on_delete=models.CASCADE)
     
     def __str__(self):
         return self.prayer_name

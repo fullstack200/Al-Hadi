@@ -10,7 +10,7 @@ class ListMosques(generics.ListAPIView):
     queryset = Mosques.objects.all()
     serializer_class = MosquesSerializer
     
-class DetailMosques(generics.RetrieveAPIView):
+class DetailMosque(generics.RetrieveAPIView):
     queryset = Mosques.objects.all()
     serializer_class = MosquesSerializer
     

@@ -1,22 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-
-class MosqueAdmin(models.Model):
-    mosqueAdmin_id = models.CharField(max_length=50, primary_key=True)
-    mosqueAdmin_username = models.CharField(max_length=50)
-    mosqueAdmin_password = models.CharField(max_length=20)
-    
-    def __str__(self):
-        return self.mosqueAdmin_username
-    
-
 class Mosques(models.Model):
     mosque_id = models.CharField(max_length=50,primary_key=True)
     mosque_name = models.CharField(max_length=100)
     mosque_address = models.CharField(max_length=500)
     mosque_google_map_url = models.URLField(max_length=500)
-    mosqueAdmin_id = models.ForeignKey(MosqueAdmin,on_delete=models.CASCADE)
+    mosqueAdmin = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def save(self, *args, **kwargs):
         # Add 'Masjid E' prefix if not already present

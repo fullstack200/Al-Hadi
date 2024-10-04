@@ -13,22 +13,14 @@ MosqueAdmin ID(Foreign Key) |          Varchar(50)
 
 Prayer Table
 ------------------------------------------------------------
-Attributes                  |          Data type
+Attributes                      |          Data type
 ------------------------------------------------------------
-Prayer ID(Primary Key)      |          Varchar(50)        
-Prayer Name                 |          Char(20)
-Prayer Rakat                |          Int
-Prayer Time                 |          Time
-Prayer Time Range           |          Time
-Mosque ID (Foreign Key)     |          Varchar(50)
+Prayer ID(Primary Key)          |          Varchar(50)        
+Prayer Name                     |          Char(20)
+Prayer Rakat                    |          Int
+Prayer Time                     |          Time
+Prayer Time Range               |          Time
+Mosque ID (Foreign Key)         |          Varchar(50)
+MosqueAdmin ID(Foreign Key)     |          Varchar(50)
 
 -------------------------------------------------------------
-
-MosqueAdmin Table          
--------------------------------------------------------------
-------------------------------------------------------------
-Attributes                  |          Data type
-------------------------------------------------------------
-MosqueAdmin ID(Primary Key) |          Varchar(50)
-MosqueAdmin Username        |          Varchar(20)
-MosqueAdmin Password        |          Varchar(20)

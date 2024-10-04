@@ -25,11 +25,8 @@ class Prayers(models.Model):
     azaan_time = models.TimeField(blank=True, null=True)
     prayer_time = models.TimeField(blank=True, null=True)
     prayer_valid_till = models.TimeField(blank=True, null=True)
-    mosque_id = models.ForeignKey(Mosques, related_name='prayers', on_delete=models.CASCADE)
+    mosque_id = models.ForeignKey(Mosques, related_name='prayers', on_delete=models.CASCADE) 
+    mosqueAdmin = models.ForeignKey(User, on_delete=models.CASCADE)   
     
     def __str__(self):
         return self.prayer_name
-
-    
-
-

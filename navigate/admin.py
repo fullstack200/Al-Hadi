@@ -20,8 +20,6 @@ class PrayerAdmin(admin.ModelAdmin):
         form.base_fields['mosque_id'].label = "Mosque Name"
         
         return form
-
-
     
 class MosqueAdmin(admin.ModelAdmin):
     # Specify the fields to display in the admin list view

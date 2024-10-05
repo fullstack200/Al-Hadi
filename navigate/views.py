@@ -72,8 +72,9 @@ class ListNAddPrayerView(generics.ListCreateAPIView):
 class ListNEditPrayerView(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         mosque_id = self.kwargs['mosque_id']
-        return Prayers.objects.filter(mosque_id=mosque_id)
+        prayer_id = self.kwargs['prayer_id']
+        return Prayers.objects.filter(mosque_id=mosque_id, prayer_id=prayer_id)
     
-    serializer_class = PrayerSerializer 
     lookup_field = 'prayer_id'
+    serializer_class = PrayerSerializer
     permission_classes = [IsMosqueAdmin]

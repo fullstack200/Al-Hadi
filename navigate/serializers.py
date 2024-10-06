@@ -1,7 +1,5 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
 from .models import Mosques, Prayers
-
 
 class MosqueSerializer(serializers.ModelSerializer):
     mosqueAdmin = serializers.CharField(source='mosqueAdmin.username', read_only=True)

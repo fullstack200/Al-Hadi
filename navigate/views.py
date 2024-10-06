@@ -1,21 +1,22 @@
-from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
 from .permissions import IsMosqueAdmin
 from django.shortcuts import get_object_or_404
 from rest_framework.exceptions import PermissionDenied
-# Create your views here.
-
+from rest_framework.permissions import AllowAny
 from .models import Mosques, Prayers
 from .serializers import MosqueSerializer, PrayerSerializer
+from rest_framework.response import Response
 
 class ListMosques(generics.ListAPIView):
     queryset = Mosques.objects.all()
     serializer_class = MosqueSerializer
+    permission_classes = [AllowAny]
     
 class DetailMosque(generics.RetrieveAPIView):
     queryset = Mosques.objects.all()
     serializer_class = MosqueSerializer
+    permission_classes = [AllowAny]
     
     def get(self, request, *args, **kwargs):
         mosque = self.get_object()

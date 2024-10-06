@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-cba@ff5z-*_&$oq0==-6m-kqjw@(vs0^my8)t@4nn**f7--2v!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -41,24 +39,17 @@ INSTALLED_APPS = [
     #3rd party
     'rest_framework',
     'corsheaders',
-    'rest_framework.authtoken', 
+
     
     #local app
     'navigate.apps.NavigateConfig'
 ]
 
 REST_FRAMEWORK = {
-'DEFAULT_PERMISSION_CLASSES': [
-'rest_framework.permissions.IsAuthenticated',
-],
-
-
-'DEFAULT_AUTHENTICATION_CLASSES': [ # new
-'rest_framework.authentication.SessionAuthentication',
-'rest_framework.authentication.TokenAuthentication',
-],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -96,7 +87,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Al_Hadi.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -106,7 +96,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -137,7 +126,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

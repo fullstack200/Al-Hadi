@@ -1,10 +1,9 @@
 from django.contrib import admin
 from .models import Mosques, Prayers
-# Register your models here.
 
 class PrayerAdmin(admin.ModelAdmin):
     # Specify the fields to display in the admin list view
-    list_display = ('prayer_id', 'prayer_name', 'prayer_rakat', 'azaan_time', 'prayer_time', 'prayer_valid_till', 'get_mosque_name')
+    list_display = ('prayer_id', 'prayer_name', 'prayer_rakat', 'azaan_time', 'prayer_time', 'get_mosque_name')
 
     def get_mosque_name(self, obj):
         # Return the name of the mosque instead of the mosque ID

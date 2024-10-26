@@ -1,0 +1,22 @@
+/* src/components/MosqueList.css */
+
+.mosque-link {
+    color: limegreen;  /* Change the color to lime green */
+    text-decoration: none; /* Remove the underline */
+    font-weight: 600;
+    
+}
+
+.mosque-link:hover {
+    text-decoration: underline; /* Optional: Add underline on hover for better UX */
+}
+
+/* src/components/MosqueList.css */
+
+input[type="text"] {
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 50%; /* Makes the input field full width */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

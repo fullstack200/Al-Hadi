@@ -6,6 +6,8 @@ class Mosques(models.Model):
     mosque_name = models.CharField(max_length=100)
     mosque_address = models.CharField(max_length=500)
     mosque_google_map_url = models.URLField(max_length=500)
+    latitude = models.FloatField(null=True, blank=True)  # Latitude as a float
+    longitude = models.FloatField(null=True, blank=True) 
     mosqueAdmin = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def save(self, *args, **kwargs):

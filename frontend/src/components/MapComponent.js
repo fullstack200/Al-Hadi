@@ -48,7 +48,7 @@ const MapComponent = ({ userLocation, mosqueLocation }) => {
     };
 
     return (
-        <LoadScript googleMapsApiKey="AIzaSyDDk6ejdl7sm8zOvM49cZexfcc3RbANcz4">
+        <LoadScript googleMapsApiKey="API_KEY">
             <GoogleMap
                 id="map"
                 mapContainerStyle={mapContainerStyle}

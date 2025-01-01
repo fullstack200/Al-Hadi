@@ -1,59 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript, Marker, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
+import React, { useEffect, useState, useRef } from 'react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+
+// Declare google globally to avoid ESLint warning
+/* global google */
+
+// Define the map container style
+const mapContainerStyle = {
+    height: "400px",
+    width: "100%",
+};
 
 const MapComponent = ({ userLocation, mosqueLocation }) => {
-    // State for directions result
-    const [directionsResponse, setDirectionsResponse] = useState(null);
+    const [map, setMap] = useState(null);
+    const mapRef = useRef(null);
 
-    useEffect(() => {
-        if (userLocation && mosqueLocation) {
-            console.log("User Location:", userLocation);
-            console.log("Mosque Location:", mosqueLocation);
-        }
-    }, [userLocation, mosqueLocation]);
+    // Center the map to either the user's location or the mosque location
+    const center = userLocation || mosqueLocation || { lat: 0, lng: 0 };
+    const zoom = 15;
 
-    const directionsCallback = (response) => {
-        if (response !== null && response.status === 'OK') {
-            setDirectionsResponse(response);
-        } else {
-            console.error("Error fetching directions:", response?.status);
+    // When the map is loaded, we can add the markers
+    const handleMapLoad = (map) => {
+        setMap(map);
+        addMarkers(map);
+    };
+
+    const addMarkers = (map) => {
+        // Clear any existing markers
+        if (map) {
+            // Add marker for user location
+            if (userLocation) {
+                new google.maps.Marker({
+                    position: userLocation,
+                    map: map,
+                    title: "Your Location",
+                });
+            }
+
+            // Add marker for mosque location
+            if (mosqueLocation) {
+                new google.maps.Marker({
+                    position: mosqueLocation,
+                    map: map,
+                    title: "Mosque Location",
+                });
+            }
         }
     };
 
-    // Render a loading message if locations are not yet available
-    if (!userLocation || !mosqueLocation) {
-        return <div>Loading map...</div>;
-    }
-
     return (
-        <LoadScript googleMapsApiKey={'AIzaSyDDk6ejdl7sm8zOvM49cZexfcc3RbANcz4'}>
+        <LoadScript googleMapsApiKey="AIzaSyDDk6ejdl7sm8zOvM49cZexfcc3RbANcz4">
             <GoogleMap
-                center={userLocation}
-                zoom={13}
-                mapContainerStyle={{ height: '400px', width: '100%' }}
+                id="map"
+                mapContainerStyle={mapContainerStyle}
+                zoom={zoom}
+                center={center}
+                onLoad={handleMapLoad}
             >
-                {/* User and Mosque markers */}
-                <Marker position={userLocation} label="You" />
-                <Marker position={mosqueLocation} label="Mosque" />
-
-                {/* DirectionsService to calculate route */}
-                <DirectionsService
-                    options={{
-                        origin: userLocation,
-                        destination: mosqueLocation,
-                        travelMode: 'DRIVING'
-                    }}
-                    callback={directionsCallback}
-                />
-
-                {/* Render the route */}
-                {directionsResponse && (
-                    <DirectionsRenderer
-                        options={{
-                            directions: directionsResponse
-                        }}
-                    />
-                )}
+                {/* Map will be rendered here */}
             </GoogleMap>
         </LoadScript>
     );

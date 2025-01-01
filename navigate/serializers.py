@@ -7,6 +7,7 @@ class MosqueSerializer(serializers.ModelSerializer):
         model = Mosques
         fields = '__all__'
         
+    # We are assigning the value of mosqueAdmin with the currently logged in user    
     def create(self, validated_data):
         # Get the authenticated user from the request context
         user = self.context['request'].user
@@ -25,6 +26,7 @@ class PrayerSerializer(serializers.ModelSerializer):
         model = Prayers
         fields = '__all__'
         
+    # We are assigning the value of mosqueAdmin with the currently logged in user    
     def create(self, validated_data):
         # Get the authenticated user from the request context
         user = self.context['request'].user

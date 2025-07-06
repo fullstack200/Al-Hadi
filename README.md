@@ -14,7 +14,7 @@
 ## Technologies Used
 
 - **Backend**: Python, Django, Django REST Framework
-- **Database**: MySQL
+- **Database**: SQlite
 - **Frontend**: React.js
 - **Maps Integration**: Google Maps API
 
